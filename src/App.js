@@ -1,4 +1,4 @@
-
+/*
 import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -13,11 +13,11 @@ function App() {
           })
     }, []);
     return (
-        <div className="App">
+       /!* <div className="App">
           백엔드 데이터 : {hello}
-        </div>
+        </div>*!/
     );
-  /*return (
+  /!*return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -34,7 +34,22 @@ function App() {
         </a>
       </header>
     </div>
-  );*/
+  );*!/
 }
+
+export default App;*/
+
+/*import React from "react";*/
+import { Routes, Route } from "react-router-dom";
+import Main from "./page/Main";
+import "../src/index.css";
+import "./App.css";
+const App = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<Main />} />
+        </Routes>
+    );
+};
 
 export default App;
