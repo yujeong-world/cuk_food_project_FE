@@ -1,8 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function App() {
-  return (
+    const [hello, setHello] = useState('');
+
+    useEffect(() => {
+      axios.get('/api/test')
+          .then((res) => {
+            setHello(res.data);
+          })
+    }, []);
+    return (
+        <div className="App">
+          백엔드 데이터 : {hello}
+        </div>
+    );
+  /*return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,7 +34,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  );*/
 }
 
 export default App;
