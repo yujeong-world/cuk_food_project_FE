@@ -1,3 +1,4 @@
+/*
 .App {
   text-align: center;
 }
@@ -35,4 +36,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+/*.w-500{
+  width: 500px;
+}*/
+.main_wrapper{
+  max-width: 500px;
+  height: 100%;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
+}
+.icon_eye, .icon_bell{
+  width: 3.125rem;
+  height: 3.125rem;
+}
+.line-height-4{
+  line-height: 4rem;
+}
+.categorey-icon{
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  border-radius: 1.25rem;
+  justify-content: center;
+  display: block;
 }
