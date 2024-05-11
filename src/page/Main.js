@@ -3,8 +3,9 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 
 const Main = ()=> {
-    const [hello, setHello] = useState('');
 
+    // 상태를 배열로 초기화
+    const [hello, setHello] = useState([]);
 
     useEffect(() => {
         axios.get('/api/products')
@@ -17,8 +18,6 @@ const Main = ()=> {
             });
     }, []);
 
-    // hello 상태의 값 확인
-    console.log("hello 상태:", hello[0]);
 
     return (
         <div>
@@ -27,8 +26,9 @@ const Main = ()=> {
                     <div className="w-full flex flex-wrap">
                         <div className="w-1/5">
                             {/*최근본맛집*/}
-                            <a >
-                                <img src="https://karymarket.com/images/icon_eye.png" className="icon_eye block m-auto"/>
+                            <a>
+                                <img src="https://karymarket.com/images/icon_eye.png"
+                                     className="icon_eye block m-auto"/>
                             </a>
                         </div>
                         <div className="w-3/5 text-center text-2xl line-height-4">
@@ -36,7 +36,8 @@ const Main = ()=> {
                         </div>
                         <div className="w-1/5">
                             <a>
-                                <img src="https://karymarket.com/images/icon_bell.svg" className="icon_bell block m-auto"/>
+                                <img src="https://karymarket.com/images/icon_bell.svg"
+                                     className="icon_bell block m-auto"/>
                             </a>
 
                         </div>
@@ -53,13 +54,18 @@ const Main = ()=> {
                 </div>
 
                 <div className="App">
-                    백엔드 데이터 : {hello}
-                </div>
-                
-                <div>
-                    <div>
-                        슬라이더 영역
-                    </div>
+                    <h2>백엔드 데이터</h2>
+                    {hello.length > 0 ? (
+                        <ul>
+                            {hello.map(product => (
+                                <li key={product.product_id}>
+                                    {product.product_id} - {product.product_name} - {product.category_code}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>데이터가 없습니다.</p>
+                    )}
                 </div>
 
                 <div className="w-full">
@@ -105,30 +111,6 @@ const Main = ()=> {
                 </div>
 
             </div>
-
-      {/*      <div>
-
-                {Object.values(hello).map(item => (
-                    <React.Fragment key={item.content.product_id}>
-                        <p>상품명 : {item.product_name}</p>
-                        <p>선택 수량 : {item.product.category_code}</p>
-                        <p>가격 : {item.product.price}</p>
-                        <img src={item.product.productImg}/>
-                    </React.Fragment>
-                ))}
-            </div>*/}
-
-
-            {/* 서버에서 받아온 상품 목록 출력 */}
-            {/*<div >*/}
-            {/*    {hello.map(product => (*/}
-            {/*        <div key={product.product_id}>*/}
-            {/*            <p>상품명 : {product.product_name}</p>*/}
-            {/*            <p>카테고리 : {product.category_code}</p>*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
-
 
 
             <footer>
