@@ -42,12 +42,20 @@ export default App;*/
 /*import React from "react";*/
 import { Routes, Route } from "react-router-dom";
 import Main from "./page/Main";
+import Login from "./page/Login"
+import SignForm from "./page/SignForm";
 import "../src/index.css";
 import "./App.css";
+import ProductCategory from "./page/ProductCategory";
+import Cart from "./page/Cart";
 const App = () => {
     return (
         <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signForm" element={<SignForm />} />
+            <Route path="/productCategory" element={<ProductCategory />} />
+            <Route path="/cart" element={<Cart />} />
         </Routes>
     );
 };

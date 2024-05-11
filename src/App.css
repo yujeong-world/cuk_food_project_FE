@@ -65,3 +65,80 @@
   justify-content: center;
   display: block;
 }
+.search{
+  width: 100%;
+  border: solid 3px #000;
+  font-size: 1.625rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  vertical-align: middle;
+  padding: 1.5rem 2.375rem;
+  height: auto;
+  border-radius: 2.5rem;
+  font-family: Pretendard;
+  cursor: pointer;
+  caret-color: transparent;
+}
+/*로그인 영역*/
+.login_input{
+  border: 1px solid #000;
+  border-radius: 1.5rem;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 0.8rem;
+}
+.login-btn{
+  background: #333333;
+  border: 1px solid #f4f4f4;
+  color:#ffffff;
+  text-align: center;
+  border-radius: 1.5rem;
+}
+.join-btn{
+  background: #f4f4f4;
+  border: 1px solid #333333;
+  color: #333333;
+}
+/*회원가입 영역*/
+.singForm_box{
+  border: 1px solid #000;
+  border-radius: 1.5rem;
+  margin: auto;
+  margin-bottom: 0.8rem;
+}
+/*장바구닌*/
+.page_header{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 3px solid #000;
+}
+.header-left{
+  width: 80%;
+}
+.header-right{
+  display: flex;
+  width: auto;
+}
+.cart_option_box{
+  width: 100%;
+  border: 2px solid #333333;
+
+}
+.cart_option_box .product_name{
+  padding: 1.875rem 2.375rem 0 2.375rem;
+  display: flex;
+}
+.header-right img{
+  transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
