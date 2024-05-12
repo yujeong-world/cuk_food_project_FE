@@ -1,25 +1,32 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import axios from "axios";
 
-const Main = ()=> {
-    // 상태를 배열로 초기화
+const Main = () => {
     const [products, setProduct] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");  // 검색어 상태 관리
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('/api/products')
-            .then((res) => {
-                setProduct(res.data.content);
-                // 가정: 각 제품에 category_code 속성이 있음
-                const uniqueCategories = [...new Set(res.data.content.map(product => product.category_code))];
+        const fetchProducts = async () => {
+            try {
+                const query = searchTerm ? `?searchTerm=${encodeURIComponent(searchTerm)}` : '';
+                const response = await axios.get(`/api/products${query}`);
+                setProduct(response.data.content);
+                const uniqueCategories = [...new Set(response.data.content.map(product => product.category_code))];
                 setCategories(uniqueCategories);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('데이터 불러오기 실패:', error);
-            });
-    }, []);
+            }
+        };
 
+        fetchProducts();  // 컴포넌트 마운트 시 및 searchTerm 변경 시 호출
+    }, [searchTerm]);
+
+    const handleSearch = () => {
+        navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+    };
 
     return (
         <div>
@@ -48,15 +55,17 @@ const Main = ()=> {
                 {/*검색 영역*/}
                 <div className="w-full">
                     <div className="search">
-                        <Link>
-                            <input/> 검색창
-                        </Link>
+                        <input
+                            type="text"
+                            placeholder="상품 검색"
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                        />
+                        <button onClick={handleSearch}>검색</button>
                     </div>
-
                 </div>
 
                 <div className="App">
-                    <h2>백엔드 데이터</h2>
                     {products.length > 0 ? (
                         <ul>
                             {products.map(product => (

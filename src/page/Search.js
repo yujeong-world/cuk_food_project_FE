@@ -1,8 +1,25 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link , useLocation} from "react-router-dom";
 import axios from "axios";
 
 const Search = ()=> {
+
+    const [products, setProducts] = useState([]);
+    const location = useLocation();
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const query = searchParams.get("query");
+
+        const fetchProducts = async () => {
+            if (query) {
+                const response = await axios.get(`/api/products?searchTerm=${query}`);
+                setProducts(response.data.content);
+            }
+        };
+
+        fetchProducts();
+    }, [location]);
 
     return (
         <div>
@@ -30,7 +47,18 @@ const Search = ()=> {
                 </header>
 
                 <div>
-                    검색 노출 페이지
+                    {products.length > 0 ? (
+                        <ul>
+                            {products.map(product => (
+                                <li key={product.product_id}>
+                                    {product.product_name} - {product.price}
+                                    <img src={product.productImg} alt="Product"/>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>검색 결과가 없습니다.</p>
+                    )}
                 </div>
 
             </div>
@@ -62,3 +90,5 @@ const Search = ()=> {
 };
 
 export default Search;
+
+
