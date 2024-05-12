@@ -69,11 +69,11 @@ const Main = () => {
                     {products.length > 0 ? (
                         <ul>
                             {products.map(product => (
-                                <li key={product.product_id}>
+                                <Link key={product.product_id} to={`/productDetail/${product.product_id}`}>
                                     {product.product_name}
                                     {product.price}
                                     <img src={product.productImg}/>
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     ) : (

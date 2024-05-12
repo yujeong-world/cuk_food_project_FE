@@ -52,11 +52,11 @@ const Category = ()=> {
                     {products.length > 0 ? (
                         <ul>
                             {products.map((product) => ( // 카테고리의 제품 목록을 동적으로 렌더링
-                                <li key={product.product_id}>
+                                <Link key={product.product_id}>
                                     {product.product_name}
                                     {product.price}
                                     <img src={product.productImg}/>
-                                </li>
+                                </Link>
                             ))}
                         </ul>
                     ) : (

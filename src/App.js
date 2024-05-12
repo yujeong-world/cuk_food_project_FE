@@ -78,6 +78,7 @@ import ProductCategory from "./page/ProductCategory";
 import Cart from "./page/Cart";
 import Category from "./page/Category";
 import Search from "./page/Search";
+import ProductDetail from "./page/ProductDetail";
 const App = () => {
     return (
         <Routes>
@@ -88,6 +89,7 @@ const App = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/category/:categoryCode" element={<Category />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/productDetail/:productCode" element={<ProductDetail />} />
         </Routes>
     );
 };
