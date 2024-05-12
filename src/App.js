@@ -48,6 +48,8 @@ import "../src/index.css";
 import "./App.css";
 import ProductCategory from "./page/ProductCategory";
 import Cart from "./page/Cart";
+import Category from "./page/Category";
+import Search from "./page/Search";
 const App = () => {
     return (
         <Routes>
@@ -56,6 +58,8 @@ const App = () => {
             <Route path="/signForm" element={<SignForm />} />
             <Route path="/productCategory" element={<ProductCategory />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/search" element={<Search />} />
         </Routes>
     );
 };
