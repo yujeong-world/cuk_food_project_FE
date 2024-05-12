@@ -1,3 +1,31 @@
+// import { Routes, Route } from "react-router-dom";
+// import Main from "./page/Main";
+// import Login from "./page/Login";
+// import SignForm from "./page/SignForm";
+// import ProductCategory from "./page/ProductCategory";
+// import Cart from "./page/Cart";
+// import Category from "./page/Category";
+// import CategoryDetails from "./page/CategoryDetails"; // 상세 페이지 컴포넌트 추가
+// import Search from "./page/Search";
+//
+// const App = () => {
+//     return (
+//         <Routes>
+//             <Route path="/" element={<Main />} />
+//             <Route path="/login" element={<Login />} />
+//             <Route path="/signForm" element={<SignForm />} />
+//             <Route path="/productCategory" element={<ProductCategory />} />
+//             <Route path="/cart" element={<Cart />} />
+//             <Route path="/category" element={<Category />} />
+//             <Route path="/category/:categoryCode" element={<CategoryDetails />} /> // 동적 라우트 추가
+//             <Route path="/search" element={<Search />} />
+//         </Routes>
+//     );
+// };
+//
+// export default App;
+
+
 /*
 import './App.css';
 import {useEffect, useState} from "react";
@@ -58,7 +86,7 @@ const App = () => {
             <Route path="/signForm" element={<SignForm />} />
             <Route path="/productCategory" element={<ProductCategory />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/category" element={<Category />} />
+            <Route path="/category/:categoryCode" element={<Category />} />
             <Route path="/search" element={<Search />} />
         </Routes>
     );
