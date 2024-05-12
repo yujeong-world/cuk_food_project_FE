@@ -3,14 +3,14 @@ import {Link} from "react-router-dom";
 import axios from 'axios'; // 액시오스
 
 const SignForm = ()=> {
-    const [email, setEmail] = useState('');
+   /* const [email, setEmail] = useState('');
     const [nickname, setNickname] = useState('');
 
     useEffect(() => {
         // 여기에 초기화 로직을 추가할 수 있습니다.
     }, []);
-
-    const handleSignup = () => {
+*/
+    /*const handleSignup = () => {
         axios.post('http://localhost:8080/api/signup', {
             email: email,
             nickname: nickname
@@ -23,7 +23,7 @@ const SignForm = ()=> {
                 console.log(error);
                 // 에러 처리 로직 추가
             });
-    }
+    }*/
 
     return (
         <div>
