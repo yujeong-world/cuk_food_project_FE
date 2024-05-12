@@ -3,15 +3,17 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 
 const Main = ()=> {
-
     // 상태를 배열로 초기화
-    const [hello, setHello] = useState([]);
+    const [products, setProduct] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         axios.get('/api/products')
             .then((res) => {
-                console.log("데이터 불러오기 성공:", res.data);
-                setHello(res.data.content);
+                setProduct(res.data.content);
+                // 가정: 각 제품에 category_code 속성이 있음
+                const uniqueCategories = [...new Set(res.data.content.map(product => product.category_code))];
+                setCategories(uniqueCategories);
             })
             .catch((error) => {
                 console.error('데이터 불러오기 실패:', error);
@@ -55,9 +57,9 @@ const Main = ()=> {
 
                 <div className="App">
                     <h2>백엔드 데이터</h2>
-                    {hello.length > 0 ? (
+                    {products.length > 0 ? (
                         <ul>
-                            {hello.map(product => (
+                            {products.map(product => (
                                 <li key={product.product_id}>
                                     {product.product_id} - {product.product_name} - {product.category_code}
                                 </li>
@@ -70,45 +72,16 @@ const Main = ()=> {
 
                 <div className="w-full">
                     <div className="w-full flex flex-wrap">
-                        {/*카테고리*/}
-                        <div className="w-1/3">
-                            <Link className="categorey-icon w-3/4" to="/">
-                                여성의류
-                                <img/>
-                            </Link>
-                        </div>
-                        <div className="w-1/3 ">
-                            <Link className="categorey-icon w-3/4">
-                                남성의류
-                                <img/>
-                            </Link>
-                        </div>
-                        <div className="w-1/3">
-                            <Link className="categorey-icon w-3/4">
-                                신발
-                                <img/>
-                            </Link>
-                        </div>
-                        <div className="w-1/3">
-                            <Link className="categorey-icon w-3/4">
-                                패션잡화
-                                <img/>
-                            </Link>
-                        </div>
-                        <div className="w-1/3">
-                            <Link className="categorey-icon w-3/4">
-                                디저트
-                                <img/>
-                            </Link>
-                        </div>
-                        <div className="w-1/3">
-                            <Link className="categorey-icon w-3/4">
-                                샐러드
-                                <img/>
-                            </Link>
-                        </div>
+                        {categories.map(category => (
+                            <div className="w-1/3" key={category}>
+                                <Link className="category-icon w-3/4" to={`/category/${category}`}>
+                                    {category}
+                                </Link>
+                            </div>
+                        ))}
                     </div>
                 </div>
+
 
             </div>
 

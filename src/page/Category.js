@@ -4,6 +4,11 @@ import axios from "axios";
 
 const Category = ()=> {
 
+    // const { categoryCode } = useParams(); // URL에서 카테고리 코드를 가져옵니다.
+    // const [products, setProducts] = useState([]); // 이 카테고리의 제품들을 저장할 상태
+
+
+
     return (
         <div>
             <div className="main_wrapper w-500 border-current border-solid">
