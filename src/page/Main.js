@@ -65,22 +65,11 @@ const Main = () => {
                     </div>
                 </div>
 
-                <div className="App">
-                    {products.length > 0 ? (
-                        <ul>
-                            {products.map(product => (
-                                <Link key={product.product_id} to={`/productDetail/${product.product_id}`}>
-                                    {product.product_name}
-                                    {product.price}
-                                    <img src={product.productImg}/>
-                                </Link>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>데이터가 없습니다.</p>
-                    )}
+                <div>
+                    슬라이드 영역
                 </div>
 
+                {/*키테고리*/}
                 <div className="w-full">
                     <div className="w-full flex flex-wrap">
                         {categories.map(category => (
@@ -93,31 +82,72 @@ const Main = () => {
                     </div>
                 </div>
 
+                <hr className="hr_black6"></hr>
+                <div className="App pd_list">
+                    <p>일반 상품</p>
+                    {products.length > 0 ? (
+                        <ul>
+                            {products.map(product => (
+                                <li>
+                                <Link key={product.product_id} to={`/productDetail/${product.product_id}`}>
+                                    <div className="product_box">
+                                        <img src={product.productImg}/>
+                                        <p>{product.product_name}</p>
+                                        <p>{product.price}</p>
+                                    </div>
+                                </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>데이터가 없습니다.</p>
+                    )}
+                </div>
+                <hr className="hr_black6"></hr>
+
+
+                <footer>
+                    <div className="tab_bar">
+                        <ul>
+                            <li>
+                                <Link>
+                                    <img className="icon_tab_hamburger" src="https://karymarket.com/images/icon_tab_hamburger.png"/>
+                                    <p className="tab_bar_text">카테고리</p>
+                                </Link>
+                            </li>
+                            <li>
+
+                                <Link>
+                                    <img className="icon_tab_search" src="https://karymarket.com/images/icon_tab_search.png"/>
+                                    <p className="tab_bar_text">검색</p>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/">
+                                    <img className="icon_tab_home" src="https://karymarket.com/images/icon_tab_home.png"/>
+                                    <p className="tab_bar_text">홈</p>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link>
+                                    <img className="icon_tab_my_info" src="https://karymarket.com/images/icon_tab_my_kary.png"/>
+                                    <p className="tab_bar_text">내정보</p>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/cart">
+                                    <img className="icon_tab_cart" src="https://karymarket.com/images/icon_tab_cart.png"/>
+                                    <p className="tab_bar_text">장바구니</p>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+
 
             </div>
 
 
-            <footer>
-                <div>
-                    <ul>
-                        <li>
-                            <Link>카테고리</Link>
-                        </li>
-                        <li>
-                            <Link>검색</Link>
-                        </li>
-                        <li>
-                            <Link>홈</Link>
-                        </li>
-                        <li>
-                            <Link>내정보</Link>
-                        </li>
-                        <li>
-                            <Link>장바구니</Link>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
         </div>
     );
 };

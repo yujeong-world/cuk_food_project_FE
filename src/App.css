@@ -104,7 +104,7 @@
 .search{
   width: 100%;
   border: solid 3px #000;
-  font-size: 1.625rem;
+  font-size: 1rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -113,7 +113,7 @@
   text-align: left;
   color: #333333;
   vertical-align: middle;
-  padding: 1.5rem 2.375rem;
+  padding: 0.7rem 0.2rem;
   height: auto;
   border-radius: 2.5rem;
   font-family: Pretendard;
@@ -193,3 +193,92 @@
   border: 1px solid #999;
   padding: 1rem 0;
 }
+/*메인 화면*/
+.pd_list{
+  width: 100%;
+  padding: 4.5rem 0;
+}
+.pd_list ul{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.pd_list ul li{
+  display: block;
+  width: 50%;
+  padding: 0.4rem;
+}
+.hr_black6{
+  border: 0 !important;
+  border-top: 3px solid #000 !important;
+  margin: 0;
+}
+/*푸터*/
+.tab_bar {
+  width: 100%;
+  /* max-width: 420px; */
+  /* max-width: 500px; */
+  /* height: 60px; */
+  background-color: #000;
+  color: #ffffff;
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  /* left: 0; */
+  transition: All 0.3s ease !important;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
+  /* box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.15), 0 -6px 6px rgba(0, 0, 0, 0.18); */
+  max-width: 500px;
+}
+.tab_bar ul{
+  width: 100%;
+  /* height: 60px; */
+  display: flex;
+  height: inherit;
+  padding: 1rem 0;
+}
+.tab_bar ul li{
+  width: 20%;
+  /* height: 60px; */
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  /* padding: 9px 0; */
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon_tab_hamburger, .icon_tab_search, .icon_tab_home, .icon_tab_my_info, .icon_tab_cart{
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.125rem;
+  margin-bottom: 5px;
+  margin: auto;
+}
+.tab_bar ul li .tab_bar_text{
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0;
+  /* bottom: 9px; */
+  left: 50%;
+  width: 100%;
+  font-size: 1rem;
+  bottom: 0;
+  text-align: center;
+}
+
+
+
+
+
+
