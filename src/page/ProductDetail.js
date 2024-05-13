@@ -40,14 +40,15 @@ const ProductDetail = ()=> {
                 <header className="w-full">
                     <div className="w-full flex flex-wrap">
                         <div className="w-1/5">
-                            {/*최근본맛집*/}
                             <a>
                                 <img src="https://karymarket.com/images/icon_eye.png"
                                      className="icon_eye block m-auto"/>
                             </a>
                         </div>
                         <div className="w-3/5 text-center text-2xl line-height-4">
-                            shopping mal
+                            <Link to="/">
+                                shopping mal
+                            </Link>
                         </div>
                         <div className="w-1/5">
                             <a>
@@ -100,6 +101,7 @@ const ProductDetail = ()=> {
                     <div>
                         <p>리뷰</p>
                         {reviews.context}
+
                         <div>
 
                             {Object.values(reviews).map(item => (
