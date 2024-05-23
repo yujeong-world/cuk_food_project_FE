@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 // Axios 인스턴스 생성
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:800', // 기본 URL 설정
+    baseURL: 'http://localhost:8080', // 기본 URL 설정
     withCredentials: true, // 쿠키를 포함한 요청을 보내도록 설정
 });
 
