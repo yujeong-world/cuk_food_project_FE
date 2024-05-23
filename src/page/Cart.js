@@ -1,27 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import axiosInstance from "../page/axiosInstance";
 
 const Cart = ()=> {
     const [hello, setHello] = useState('');
 
-
-   /* useEffect(() => {
-        axios.get('/api/cart/list')
-            .then((res) => {
-                console.log(res);
-
-                setHello(res.data.product);
-                console.log(res.data[0].product.product_name);
-
-            })
-            .catch((error) => {
-                console.error('Error fetching cart list:', error);
-            });
-    }, []);
-*/
+    
     useEffect(() => {
-        axios.get('/api/cart/list')
+        axiosInstance.get('/api/cart/list')
             .then((res) => {
                 console.log(res);
 

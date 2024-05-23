@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link , useLocation} from "react-router-dom";
 import axios from "axios";
+import axiosInstance from "../page/axiosInstance";
+
 
 const Search = ()=> {
 
@@ -13,7 +15,7 @@ const Search = ()=> {
 
         const fetchProducts = async () => {
             if (query) {
-                const response = await axios.get(`/api/products?searchTerm=${query}`);
+                const response = await axiosInstance.get(`/api/products?searchTerm=${query}`);
                 setProducts(response.data.content);
             }
         };
