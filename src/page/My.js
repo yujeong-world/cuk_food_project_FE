@@ -2,36 +2,8 @@ import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 
-const ProductDetail = ()=> {
-    const { productCode } = useParams(); // URL에서 상품코드 가져옴
-    const [products, setProduct] = useState([]); // 이 카테고리의 제품들을 저장할 상태
-    const [reviews, setReviews] = useState([]); // 리뷰
+const My = ()=> {
 
-
-
-    useEffect(() => {
-        // 해당 카테고리의 제품 데이터를 불러옵니다.
-        axios.get(`/api/product/${productCode}`)
-            .then((res) => {
-                console.log(res)
-                setProduct(res.data); // 상태 업데이트
-            })
-            .catch((error) => {
-                console.error('데이터 불러오기 실패:', error);
-            });
-    }, [productCode]); // productCode 변경마다 실행
-
-    const handleReviewClick = () => {
-        // 리뷰 데이터를 불러옵니다.
-        axios.get(`/api/review/list/${productCode}`)
-            .then((res) => {
-                console.log(res)
-                setReviews(res.data.content); // 상태 업데이트
-            })
-            .catch((error) => {
-                console.error('데이터 불러오기 실패:', error);
-            });
-    };
 
 
     return (
@@ -65,7 +37,7 @@ const ProductDetail = ()=> {
                         arrow_back_ios
                         </span>
                         <span className="page-title">
-                            장바구니
+                            마이페이지
                         </span>
                     </div>
                     <div className="header-right">
@@ -82,49 +54,32 @@ const ProductDetail = ()=> {
 
                 </div>
                 <div>
-                    상품상세 페이지
                     <div>
-                        <img src={products.productImg}/>
+                        <div>
+                            <img/>
+                        </div>
+                        <div>
+                            <p>이름영역</p>
+                        </div>
                     </div>
                     <div>
-                        <p>카테고리 : {products.category_code}</p>
-                        <p>가격 : {products.price}</p>
-                    </div>
-                    <div className="pd_tap">
                         <ul>
-                            <li>상품정보</li>
-                            <li onClick={handleReviewClick}>리뷰</li> {/* 리뷰를 클릭하면 handleReviewClick 함수 실행 */}
-                            <li>상품 Q&A</li>
+                            <li>
+                                주문목록
+                            </li>
+                            <li>
+                                리뷰관리
+                            </li>
+                            <li>
+                                배송지 관리
+                            </li>
                         </ul>
-                    </div>
-
-                    <div>
-                        <p>리뷰</p>
-                        {reviews.context}
-
-                        <div>
-
-                            {Object.values(reviews).map(item => (
-                                <React.Fragment key={item.reviewId}>
-                                    <p>상품명 : {item.context}</p>
-                                    {/*<p>선택 수량 : {item.product.productId}</p>
-                                    <p>가격 : {item.product.price}</p>
-                                    <img src={item.product.productImg}/>*/}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div>
-                        상품 상세 이미지
-                        <div>
-                            <img src={products.productInfoImg}/>
-                        </div>
                     </div>
                 </div>
 
 
             </div>
+
 
 
             <footer>
@@ -152,4 +107,4 @@ const ProductDetail = ()=> {
     );
 };
 
-export default ProductDetail;
+export default My;

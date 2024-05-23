@@ -79,6 +79,7 @@ import Cart from "./page/Cart";
 import Category from "./page/Category";
 import Search from "./page/Search";
 import ProductDetail from "./page/ProductDetail";
+import My from "./page/My";
 const App = () => {
     return (
         <Routes>
@@ -90,6 +91,7 @@ const App = () => {
             <Route path="/category/:categoryCode" element={<Category />} />
             <Route path="/search" element={<Search />} />
             <Route path="/productDetail/:productCode" element={<ProductDetail />} />
+            <Route path="/my" element={<My />} />
         </Routes>
     );
 };
