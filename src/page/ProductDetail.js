@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import axiosInstance from "../page/axiosInstance";
+
 
 const ProductDetail = ()=> {
     const { productCode } = useParams(); // URL에서 상품코드 가져옴
@@ -11,7 +13,7 @@ const ProductDetail = ()=> {
 
     useEffect(() => {
         // 해당 카테고리의 제품 데이터를 불러옵니다.
-        axios.get(`/api/product/${productCode}`)
+        axiosInstance.get(`/api/product/${productCode}`)
             .then((res) => {
                 console.log(res)
                 setProduct(res.data); // 상태 업데이트
@@ -23,7 +25,7 @@ const ProductDetail = ()=> {
 
     const handleReviewClick = () => {
         // 리뷰 데이터를 불러옵니다.
-        axios.get(`/api/review/list/${productCode}`)
+        axiosInstance.get(`/api/review/list/${productCode}`)
             .then((res) => {
                 console.log(res)
                 setReviews(res.data.content); // 상태 업데이트

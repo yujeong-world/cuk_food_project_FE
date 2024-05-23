@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useParams, Link } from "react-router-dom";  // useParams를 추가하여 임포트
 import axios from "axios";
+import axiosInstance from "../page/axiosInstance";
 
 const Category = ()=> {
 
@@ -10,7 +11,7 @@ const Category = ()=> {
 
     useEffect(() => {
         // 해당 카테고리의 제품 데이터를 불러옵니다.
-        axios.get(`/api/products?category=${categoryCode}`)
+        axiosInstance.get(`/api/products?category=${categoryCode}`)
             .then((res) => {
                 console.log(res)
                 setProducts(res.data.content); // 상태 업데이트

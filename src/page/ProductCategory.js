@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import axios from 'axios';
+import axiosInstance from "../page/axiosInstance";
+
 
 const ProductCategory = ()=> {
 
     const [hello, setHello] = useState('');
 
     useEffect(() => {
-        axios.get('/api/test')
+        axiosInstance.get('/api/test')
             .then((res) => {
                 setHello(res.data);
             })
