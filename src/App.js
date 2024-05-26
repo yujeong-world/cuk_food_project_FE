@@ -10,6 +10,8 @@ import Search from './page/Search';
 import ProductDetail from './page/ProductDetail';
 import OAuth2RedirectHandler from './page/OAuth2RedirectHandler';
 import My from "./page/My";
+import QnAPage from "./page/QnAPage"; // QnAPage 컴포넌트 가져오기
+
 const App = () => {
     return (
         <Routes>
