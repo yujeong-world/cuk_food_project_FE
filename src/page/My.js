@@ -1,10 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axiosInstance from './axiosInstance'; // 앞서 설정한 axiosInstance를 가져옵니다.
 
-const My = ()=> {
+const My = () => {
+    const [user, setUser] = useState(null);
 
-
+    useEffect(() => {
+        // 사용자 정보 가져오기
+        axiosInstance.get("/api/user")
+            .then(response => {
+                setUser(response.data);
+            })
+            .catch(error => {
+                console.error("사용자 정보를 가져오는 중 오류 발생:", error);
+            });
+    }, []);
 
     return (
         <div>
@@ -27,79 +37,54 @@ const My = ()=> {
                                 <img src="https://karymarket.com/images/icon_bell.svg"
                                      className="icon_bell block m-auto"/>
                             </a>
-
                         </div>
                     </div>
                 </header>
                 <div className="page_header">
                     <div className="header-left">
                         <span className="material-symbols-outlined">
-                        arrow_back_ios
+                            arrow_back_ios
                         </span>
                         <span className="page-title">
                             마이페이지
                         </span>
                     </div>
                     <div className="header-right">
-                        <Link href="/s" id="sm-head-search">
+                        <Link to="/s" id="sm-head-search">
                             <img src="https://karymarket.com/images/icon-search.svg" className="header_icon icon-sm icon_search" alt="search" />
                         </Link>
-
-
-                        <Link href="/" id="head-home" className="default_ml_10">
+                        <Link to="/" id="head-home" className="default_ml_10">
                             <img src="https://karymarket.com/images/icon_home.svg" className="header_icon icon_home" alt="home" />
                         </Link>
-
                     </div>
-
                 </div>
                 <div>
                     <div>
                         <div>
-                            <img/>
-                        </div>
-                        <div>
-                            <p>이름영역</p>
+                            {user ? (
+                                <p>{user.name} {user.email}</p>
+                            ) : (
+                                <p>Loading...</p>
+                            )}
                         </div>
                     </div>
                     <div>
                         <ul>
-                            <li>
-                                주문목록
-                            </li>
-                            <li>
-                                리뷰관리
-                            </li>
-                            <li>
-                                배송지 관리
-                            </li>
+                            <li>주문목록</li>
+                            <li>리뷰관리</li>
+                            <li>배송지 관리</li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
-
-
-
             <footer>
                 <div>
                     <ul>
-                        <li>
-                            <Link>카테고리</Link>
-                        </li>
-                        <li>
-                            <Link>검색</Link>
-                        </li>
-                        <li>
-                            <Link>홈</Link>
-                        </li>
-                        <li>
-                            <Link>내정보</Link>
-                        </li>
-                        <li>
-                            <Link>장바구니</Link>
-                        </li>
+                        <li><Link>카테고리</Link></li>
+                        <li><Link>검색</Link></li>
+                        <li><Link>홈</Link></li>
+                        <li><Link>내정보</Link></li>
+                        <li><Link>장바구니</Link></li>
                     </ul>
                 </div>
             </footer>
