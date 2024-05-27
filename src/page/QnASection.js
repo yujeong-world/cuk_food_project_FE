@@ -143,4 +143,5 @@ const QnASection = ({ productCode }) => {
     );
 };
 
+
 export default QnASection;

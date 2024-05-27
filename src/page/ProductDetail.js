@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axiosInstance from "../page/axiosInstance";
 import QnASection from "../page/QnASection"; // QnASection 컴포넌트를 가져옵니다.
 
+
 const ProductDetail = () => {
     const { productCode } = useParams();
     const [products, setProduct] = useState([]);
