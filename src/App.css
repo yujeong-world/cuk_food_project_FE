@@ -276,9 +276,47 @@
   bottom: 0;
   text-align: center;
 }
-
-
-
-
-
-
+.cart_btn{
+  width: 120px;
+  background: #999999;
+  border: 1px solid #333333;
+  color: white;
+}
+/* 로그인 */
+.login_sns{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.login_sns button{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  width: 5.625rem;
+  height: 5.625rem;
+  margin-right: 2rem;
+}
+.icon_naver_logo{
+  background-color: #47b749;
+}
+.icon_google_logo{
+  background-color: #efefef;
+}
+.icon_kakao_logo{
+  background-color: #f6e24b;
+}
+.login_text{
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000;
+  font-size: 1.5rem;
+  line-height: normal;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
