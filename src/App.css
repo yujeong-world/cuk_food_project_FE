@@ -279,28 +279,38 @@
 
 
 /* 스타일을 추가합니다. */
-.qna-section {
+.section {
   display: flex;
   flex-direction: column;
   align-items: flex-end; /* 오른쪽 정렬 */
 }
 
-.qna-controls {
+.controls {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 10px;
 }
 
-.qna-container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
-  width: 100%; /* QnA 카드가 가로로 꽉 차도록 설정 */
+  width: 100%; /* 카드가 가로로 꽉 차도록 설정 */
 }
 
-.qna-card {
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.pagination-button {
+  margin: 0 4px;
+}
+
+.card {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 8px;
@@ -308,17 +318,17 @@
   width: 100%; /* 카드가 전체 너비를 차지하도록 설정 */
 }
 
-.qna-content {
+.content {
   margin-bottom: 12px;
 }
 
-.qna-content h6 {
+.content h6 {
   margin: 0;
   font-size: 1em;
   font-weight: bold;
 }
 
-.qna-content p {
+.content p {
   margin: 4px 0;
   font-size: 0.9em;
   color: #555;
@@ -337,10 +347,3 @@
   cursor: pointer;
   border-radius: 4px;
 }
-
-
-
-
-
-
-

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../page/axiosInstance";
 
+
 const QnASection = ({ productCode }) => {
     const [questions, setQuestions] = useState([]);
     const [showQnA, setShowQnA] = useState(false);
@@ -97,11 +98,11 @@ const QnASection = ({ productCode }) => {
     };
 
     return (
-        <div className="qna-section">
-            <div className="qna-container">
+        <div className="section">
+            <div className="container">
                 {questions.map((q) => (
-                    <div key={q.qnaId} className="qna-card">
-                        <div className="qna-content">
+                    <div key={q.qnaId} className="card">
+                        <div className="content">
                             <h6>{q.questionerName}</h6>
                             <p>{q.createdAt ? new Date(q.createdAt).toLocaleString() : 'Unknown'}</p>
                             <p>{q.question}</p>
@@ -122,9 +123,9 @@ const QnASection = ({ productCode }) => {
                 ))}
             </div>
 
-            <div className="qna-controls">
+            <div className="controls">
                 <button className="btn btn-primary" onClick={toggleQnAForm}>
-                    {showQnAForm ? "작성 취소" : "문의하기"}
+                    {showQnAForm ? "작성취소" : "문의하기"}
                 </button>
                 {showQnAForm && (
                     <div>
@@ -142,6 +143,5 @@ const QnASection = ({ productCode }) => {
         </div>
     );
 };
-
 
 export default QnASection;
