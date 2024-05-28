@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axiosInstance from "../page/axiosInstance";
 import QnASection from "../page/QnASection"; // QnASection 컴포넌트를 가져옵니다.
-
+import ReviewSection from "../page/ReviewSection"; // ReviewSection 컴포넌트를 가져옵니다.
 
 const ProductDetail = () => {
     const { productCode } = useParams();
     const [products, setProduct] = useState([]);
-    const [reviews, setReviews] = useState([]);
     const [showQnA, setShowQnA] = useState(false); // 추가: showQnA 상태 변수
+    const [showReviews, setShowReviews] = useState(false); // 추가: showReviews 상태 변수
 
     useEffect(() => {
         axiosInstance.get(`/api/products/${productCode}`)
@@ -21,19 +21,13 @@ const ProductDetail = () => {
     }, [productCode]);
 
     const handleReviewClick = () => {
-        axiosInstance.get(`/api/review?productId=${productCode}`)
-            .then((res) => {
-                console.log(res)
-                if (res.data && res.data.content) {
-                    setReviews(res.data.content);
-                } else {
-                    setReviews([]);
-                }
-            })
-            .catch((error) => {
-                console.error('데이터 불러오기 실패:', error);
-                setReviews([]); // 오류 발생 시 빈 배열로 초기화
-            });
+        setShowReviews(true);
+        setShowQnA(false);
+    };
+
+    const handleQnAClick = () => {
+        setShowReviews(false);
+        setShowQnA(true);
     };
 
     return (
@@ -70,19 +64,12 @@ const ProductDetail = () => {
                     <div className="pd_tap">
                         <ul>
                             <li>상품정보</li>
-                            <li onClick={handleReviewClick}>리뷰</li>
-                            <li onClick={() => setShowQnA(true)}>상품 Q&A</li> {/* 수정: showQnA 상태 설정 */}
+                            <li onClick={handleReviewClick}>리뷰</li> {/* 수정: handleReviewClick 함수 사용 */}
+                            <li onClick={handleQnAClick}>상품 Q&A</li> {/* 수정: handleQnAClick 함수 사용 */}
                         </ul>
                     </div>
 
-                    <div>
-                        {reviews.map(item => (
-                            <React.Fragment key={item.reviewId}>
-                                <p>상품명 : {item.context}</p>
-                            </React.Fragment>
-                        ))}
-                    </div>
-
+                    {showReviews && <ReviewSection productCode={productCode} />} {/* 수정: showReviews 사용 */}
                     {showQnA && <QnASection productCode={productCode} />} {/* 수정: showQnA 사용 */}
                 </div>
             </div>
